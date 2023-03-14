@@ -5,3 +5,17 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+body{
+  background: #F6F8FF;
+}
+.App{
+  width: max-content;
+  height: max-content;
+  padding: 56px;
+  margin: 56px auto;
+}
+
+@font-face {
+  font-family: 'SpaceMono';
+  src: url('./assets/SpaceMono-Bold.ttf');
+}
