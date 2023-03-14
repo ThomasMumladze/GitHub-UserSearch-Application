@@ -1,0 +1,32 @@
+.pageTitle_DarkTheme {
+    width: 730px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 55px;
+
+    .darkModeButton {
+        display: flex;
+        align-items: center;
+
+        h1 {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 19px;
+            text-align: right;
+            letter-spacing: 2.5px;
+            color: #697C9A;
+            text-transform: uppercase;
+            padding-right: 18px;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+            width: max-content;
+            height: max-content;
+            cursor: pointer;
+        }
+    }
+}
