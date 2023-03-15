@@ -2,7 +2,7 @@ import "./devFinder.scss";
 import Search from "./userSearch/Search";
 import Title from "./title/Title";
 import SubTitle from "./subTitle/SubTitle";
-const moonIcon = require("../assets/icon/Path.png");
+import SearchResult from "./searchResult/SearchResult";
 
 const DevFinder = () => {
     return (
@@ -26,6 +26,7 @@ const DevFinder = () => {
                 </div>
             </div>
             <Search />
+            <SearchResult />
         </div>
     );
 };
