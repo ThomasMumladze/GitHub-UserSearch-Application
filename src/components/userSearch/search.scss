@@ -54,5 +54,10 @@
         line-height: 24px;
         color: #FEFEFE;
         font-family: 'SpaceMono';
+        transition: .2s ease-in-out;
+
+        &:hover {
+            background: #60ABFF;
+        }
     }
 }

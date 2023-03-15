@@ -8,6 +8,13 @@
     .darkModeButton {
         display: flex;
         align-items: center;
+        cursor: pointer;
+
+        .subTitle {
+            padding: 0 8px;
+            text-transform: uppercase;
+            transition: .2s ease-in-out;
+        }
 
         h1 {
             font-style: normal;
@@ -27,6 +34,22 @@
             width: max-content;
             height: max-content;
             cursor: pointer;
+
+            svg {
+                transition: .2s ease-in-out;
+                fill: #697C9A;
+            }
+        }
+
+        &:hover {
+            button svg {
+                fill: #222731;
+            }
+
+            .subTitle {
+                color: #222731;
+                ;
+            }
         }
     }
 }

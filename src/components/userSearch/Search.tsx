@@ -1,3 +1,4 @@
+import ErrorMessage from "../errorMessage/ErrorMessage";
 import "./search.scss";
 const Search = () => {
     return (
@@ -18,6 +19,7 @@ const Search = () => {
                     placeholder={"Search GitHub username..."}
                 />
             </div>
+            <ErrorMessage />
             <button>Search</button>
         </div>
     );
