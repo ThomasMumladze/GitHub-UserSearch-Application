@@ -9,6 +9,8 @@
         display: flex;
         align-items: center;
         cursor: pointer;
+        transition: .2s ease-in-out;
+        user-select: none;
 
         .subTitle {
             padding: 0 8px;
@@ -28,27 +30,44 @@
             padding-right: 18px;
         }
 
-        button {
-            background-color: transparent;
-            border: none;
-            width: max-content;
-            height: max-content;
-            cursor: pointer;
 
-            svg {
-                transition: .2s ease-in-out;
-                fill: #697C9A;
-            }
+        svg {
+            transition: .2s ease-in-out;
+            fill: #697C9A;
         }
 
+
         &:hover {
-            button svg {
+            svg {
                 fill: #222731;
             }
 
             .subTitle {
                 color: #222731;
                 ;
+            }
+        }
+    }
+}
+
+.gitHubUserSearcher_DARK {
+    .darkModeButton {
+        .subTitle {
+            color: #FFF;
+        }
+
+
+        svg {
+            fill: #FFF;
+        }
+
+        &:hover {
+            .subTitle {
+                color: #90A4D4;
+            }
+
+            svg {
+                fill: #90A4D4;
             }
         }
     }
