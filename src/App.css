@@ -12,10 +12,20 @@ body{
   width: max-content;
   height: max-content;
   padding: 56px;
-  margin: 56px auto;
+  margin: 0px auto;
+}
+.gitHubUserSearcher{
+  height: 100vh;
+}.gitHubUserSearcher_DARK{
+  height: 100vh;
+  background-color: #141D2F;
+}
+.gitHubUserSearcher_DARK p , .gitHubUserSearcher_DARK h1 {
+  color: #FFF;
 }
 
 @font-face {
   font-family: 'SpaceMono';
   src: url('./assets/SpaceMono-Bold.ttf');
 }
+
