@@ -1,5 +1,5 @@
 import "./devFinder.scss";
-import Search from "./searchComponent/Search";
+import Search from "./search/Search";
 import Title from "./title/Title";
 const moonIcon = require("../assets/icon/Path.png");
 
