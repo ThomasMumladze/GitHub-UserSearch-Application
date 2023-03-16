@@ -2,6 +2,7 @@ import ErrorMessage from "../errorMessage/ErrorMessage";
 import "./search.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Loading from "../loading/Loading";
 const Search = () => {
     const [searchValue, setSearchValue] = useState("");
     const [userSearchByName, setUserSearchByName] = useState<object>([]);
@@ -17,6 +18,7 @@ const Search = () => {
 
     return (
         <div className="searchWrapper">
+            <Loading />
             <div className="searchInput">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
