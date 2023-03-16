@@ -1,11 +1,19 @@
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import "./search.scss";
-import { useState } from "react";
-interface Props {}
-const Search = (props: Props) => {
-    const {} = props;
-
+import { useState, useEffect } from "react";
+import axios from "axios";
+const Search = () => {
     const [searchValue, setSearchValue] = useState("");
+    const [userSearchByName, setUserSearchByName] = useState<object>([]);
+    useEffect(() => {
+        try {
+            axios
+                .get(`https://api.github.com/users/${searchValue}`)
+                .then((res) => setUserSearchByName(res.data));
+        } catch (error) {
+            throw new Error();
+        }
+    }, [searchValue]);
 
     return (
         <div className="searchWrapper">

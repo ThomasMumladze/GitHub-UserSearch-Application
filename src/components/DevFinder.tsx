@@ -3,24 +3,12 @@ import Search from "./userSearch/Search";
 import Title from "./title/Title";
 import SubTitle from "./subTitle/SubTitle";
 import SearchResult from "./searchResult/SearchResult";
-
-import axios from "axios";
-import { useEffect, useState } from "react";
-
 interface Props {
     handleDarkMode: () => void;
     darkMode: boolean;
 }
 const DevFinder = (props: Props) => {
     const { handleDarkMode, darkMode } = props;
-
-    // https://api.github.com/users/
-    const [userSearchByName, setUserSearchByName] = useState<object>([]);
-    useEffect(() => {
-        try {
-            axios.get(`https://api.github.com/users/${userSearchByName}`);
-        } catch (error) {}
-    });
     return (
         <div className="devFinder">
             <div className={"pageTitle_DarkTheme"}>
