@@ -3,6 +3,8 @@ import "./search.scss";
 import { useState } from "react";
 interface Props {}
 const Search = (props: Props) => {
+    const {} = props;
+
     const [searchValue, setSearchValue] = useState("");
 
     return (
