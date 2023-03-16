@@ -3,8 +3,6 @@ import DevFinder from "./components/DevFinder";
 import { useState, useEffect } from "react";
 
 function App() {
-    // https://api.github.com/users/
-
     const [darkMode, setDarkMode] = useState<boolean>(false);
 
     useEffect(() => {
