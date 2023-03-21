@@ -1,74 +1,82 @@
-.pageTitle_DarkTheme {
-    width: 730px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 55px;
-
-    .darkModeButton {
+.devFinder {
+    .pageTitle_DarkTheme {
+        width: 730px;
         display: flex;
         align-items: center;
-        cursor: pointer;
-        transition: .2s ease-in-out;
-        user-select: none;
+        justify-content: space-between;
+        margin-bottom: 55px;
 
-        .subTitle {
-            padding: 0 8px;
-            text-transform: uppercase;
+        .darkModeButton {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
             transition: .2s ease-in-out;
-        }
-
-        h1 {
-            font-style: normal;
-            font-weight: 700;
-            font-size: 13px;
-            line-height: 19px;
-            text-align: right;
-            letter-spacing: 2.5px;
-            color: #697C9A;
-            text-transform: uppercase;
-            padding-right: 18px;
-        }
-
-
-        svg {
-            transition: .2s ease-in-out;
-            fill: #697C9A;
-        }
-
-
-        &:hover {
-            svg {
-                fill: #222731;
-            }
+            user-select: none;
 
             .subTitle {
-                color: #222731;
-                ;
+                padding: 0 8px;
+                text-transform: uppercase;
+                transition: .2s ease-in-out;
+            }
+
+            h1 {
+                font-style: normal;
+                font-weight: 700;
+                font-size: 13px;
+                line-height: 19px;
+                text-align: right;
+                letter-spacing: 2.5px;
+                color: #697C9A;
+                text-transform: uppercase;
+                padding-right: 18px;
+            }
+
+
+            svg {
+                transition: .2s ease-in-out;
+                fill: #697C9A;
+            }
+
+
+            &:hover {
+                svg {
+                    fill: #222731;
+                }
+
+                .subTitle {
+                    color: #222731;
+                    ;
+                }
             }
         }
     }
-}
 
-.gitHubUserSearcher_DARK {
-    .darkModeButton {
-        .subTitle {
-            color: #FFF;
-        }
-
-
-        svg {
-            fill: #FFF;
-        }
-
-        &:hover {
+    .gitHubUserSearcher_DARK {
+        .darkModeButton {
             .subTitle {
-                color: #90A4D4;
+                color: #FFF;
             }
+
 
             svg {
-                fill: #90A4D4;
+                fill: #FFF;
+            }
+
+            &:hover {
+                .subTitle {
+                    color: #90A4D4;
+                }
+
+                svg {
+                    fill: #90A4D4;
+                }
             }
         }
+    }
+
+    .lds-ring {
+        top: 110%;
+        left: 50%;
+        right: 50%;
     }
 }
