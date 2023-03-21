@@ -1,31 +1,54 @@
-*{
-  margin: 0px;
-  padding: 0px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+* {
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
-body{
-  background: #F6F8FF;
+body {
+    background: #f6f8ff;
 }
-.App{
-  width: max-content;
-  height: max-content;
-  padding: 56px;
-  margin: 0px auto;
+.App {
+    width: max-content;
+    height: max-content;
+    padding: 56px;
+    margin: 0px auto;
 }
-.gitHubUserSearcher{
-  height: 100vh;
-}.gitHubUserSearcher_DARK{
-  height: 100vh;
-  background-color: #141D2F;
+.notAvailable {
+    color: #4b6a9b7e !important;
+    fill: #4b6a9b7e !important;
 }
-.gitHubUserSearcher_DARK p , .gitHubUserSearcher_DARK h1 {
-  color: #FFF;
+.gitHubUserSearcher {
+    height: 100vh;
+}
+.gitHubUserSearcher_DARK {
+    height: 100vh;
+    background-color: #141d2f;
+}
+.gitHubUserSearcher_DARK p,
+.gitHubUserSearcher_DARK h1,
+.gitHubUserSearcher_DARK span,
+.gitHubUserSearcher_DARK a {
+    color: #fff !important;
+}
+.gitHubUserSearcher_DARK .searchResult {
+    background: #1e2a47;
+    box-shadow: 0 0 0 0;
 }
 
+.gitHubUserSearcher_DARK .userProfile .bio,
+.gitHubUserSearcher_DARK .joinedDate p {
+    color: #fff !important;
+}
+.gitHubUserSearcher_DARK .company .companyTitle .companiInfo {
+    background-color: #0079ff !important ;
+}
+
+.gitHubUserSearcher_DARK .audience {
+    background: #141d2f !important;
+    color: #fff !important;
+}
 @font-face {
-  font-family: 'SpaceMono';
-  src: url('./assets/SpaceMono-Bold.ttf');
+    font-family: "SpaceMono";
+    src: url("./assets/SpaceMono-Bold.ttf");
 }
-
