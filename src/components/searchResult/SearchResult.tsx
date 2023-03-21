@@ -17,7 +17,7 @@ const SearchResult = (props: Props) => {
                 <div className="userInfo">
                     <div className="userProfile">
                         <h1>{userSearchByName.name}</h1>
-                        <p>@{userSearchByName.login}</p>
+                        <p>@ {userSearchByName.login}</p>
                         <p className="bio">
                             {userSearchByName.bio == null
                                 ? "This profile has no bio"
