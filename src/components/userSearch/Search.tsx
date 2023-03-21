@@ -1,24 +1,28 @@
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import "./search.scss";
 import { useState, useEffect } from "react";
-import axios from "axios";
-import Loading from "../loading/Loading";
-const Search = () => {
+
+interface Props {
+    handleGetUserData: (searchValue: any, signal: any) => void;
+    userSearchByName: any;
+}
+const Search = (props: Props) => {
+    const { handleGetUserData, userSearchByName } = props;
     const [searchValue, setSearchValue] = useState("");
-    const [userSearchByName, setUserSearchByName] = useState<object>([]);
+
     useEffect(() => {
-        try {
-            axios
-                .get(`https://api.github.com/users/${searchValue}`)
-                .then((res) => setUserSearchByName(res.data));
-        } catch (error) {
-            throw new Error();
-        }
-    }, [searchValue]);
+        const controller = new AbortController();
+        const signal = controller.signal;
+
+        handleGetUserData(searchValue, signal);
+
+        return () => {
+            controller.abort();
+        };
+    }, []);
 
     return (
         <div className="searchWrapper">
-            <Loading />
             <div className="searchInput">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -37,8 +41,10 @@ const Search = () => {
                     placeholder={"Search GitHub username..."}
                 />
             </div>
-            <ErrorMessage />
-            <button>Search</button>
+            {searchValue !== userSearchByName}
+            <button onClick={() => handleGetUserData(searchValue, AbortSignal)}>
+                Search
+            </button>
         </div>
     );
 };
