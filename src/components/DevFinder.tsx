@@ -5,7 +5,6 @@ import Search from "./userSearch/Search";
 import Title from "./title/Title";
 import SubTitle from "./subTitle/SubTitle";
 import SearchResult from "./searchResult/SearchResult";
-import Loading from "./loading/Loading";
 
 interface Props {
     handleDarkMode: () => void;
