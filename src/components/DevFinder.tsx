@@ -1,16 +1,43 @@
+import axios from "axios";
+import { useState } from "react";
 import "./devFinder.scss";
 import Search from "./userSearch/Search";
 import Title from "./title/Title";
 import SubTitle from "./subTitle/SubTitle";
 import SearchResult from "./searchResult/SearchResult";
+import Loading from "./loading/Loading";
+
 interface Props {
     handleDarkMode: () => void;
     darkMode: boolean;
 }
 const DevFinder = (props: Props) => {
     const { handleDarkMode, darkMode } = props;
+    const [userSearchByName, setUserSearchByName] = useState<object>([]);
+    const [loading, setLoading] = useState<boolean | null>(null);
+    const [loadDevData, setLoadDevData] = useState<boolean | null>(null);
+    console.log(loading);
+
+    const handleGetUserData = (seachValue: string, signal: any): any => {
+        setLoadDevData(false);
+        setLoading(true);
+        setTimeout(() => {
+            try {
+                axios
+                    .get(`https://api.github.com/users/${seachValue}`, signal)
+                    .then((res) => {
+                        setUserSearchByName(res.data);
+                        setLoadDevData(true);
+                        setLoading(false);
+                    });
+            } catch (error) {
+                throw new Error();
+            }
+        }, 550);
+    };
+
     return (
-        <div className="devFinder">
+        <div className="devFinder" style={{ position: "relative" }}>
             <div className={"pageTitle_DarkTheme"}>
                 <Title text={"devfinder"} />
                 <div className="darkModeButton" onClick={handleDarkMode}>
@@ -44,8 +71,19 @@ const DevFinder = (props: Props) => {
                     )}
                 </div>
             </div>
-            <Search />
-            <SearchResult />
+            <Search
+                handleGetUserData={handleGetUserData}
+                userSearchByName={userSearchByName}
+            />
+            {loadDevData ? (
+                <div>
+                    {loading ? (
+                        <Loading />
+                    ) : (
+                        <SearchResult userSearchByName={userSearchByName} />
+                    )}
+                </div>
+            ) : null}
         </div>
     );
 };
