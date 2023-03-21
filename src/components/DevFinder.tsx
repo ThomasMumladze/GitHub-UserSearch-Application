@@ -14,20 +14,23 @@ interface Props {
 const DevFinder = (props: Props) => {
     const { handleDarkMode, darkMode } = props;
     const [userSearchByName, setUserSearchByName] = useState<object>([]);
-    const [loading, setLoading] = useState<boolean | null>(null);
-    const [loadDevData, setLoadDevData] = useState<boolean | null>(null);
-    console.log(loading);
 
+    const [loading, setLoading] = useState<boolean | null>(false);
+    const [loadDevData, setLoadDevData] = useState<boolean | null>(false);
+    console.log(loading);
     const handleGetUserData = (seachValue: string, signal: any): any => {
         setLoadDevData(false);
-        setLoading(true);
         setTimeout(() => {
+            setLoading(true);
             try {
                 axios
                     .get(`https://api.github.com/users/${seachValue}`, signal)
                     .then((res) => {
                         setUserSearchByName(res.data);
                         setLoadDevData(true);
+                        setLoading(false);
+                    })
+                    .catch((err) => {
                         setLoading(false);
                     });
             } catch (error) {
@@ -74,15 +77,10 @@ const DevFinder = (props: Props) => {
             <Search
                 handleGetUserData={handleGetUserData}
                 userSearchByName={userSearchByName}
+                loading={loading}
             />
             {loadDevData ? (
-                <div>
-                    {loading ? (
-                        <Loading />
-                    ) : (
-                        <SearchResult userSearchByName={userSearchByName} />
-                    )}
-                </div>
+                <SearchResult userSearchByName={userSearchByName} />
             ) : null}
         </div>
     );

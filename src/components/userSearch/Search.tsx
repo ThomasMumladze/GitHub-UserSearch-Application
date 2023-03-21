@@ -1,13 +1,15 @@
 import ErrorMessage from "../errorMessage/ErrorMessage";
 import "./search.scss";
 import { useState, useEffect } from "react";
+import Loading from "../loading/Loading";
 
 interface Props {
     handleGetUserData: (searchValue: any, signal: any) => void;
     userSearchByName: any;
+    loading: boolean | null;
 }
 const Search = (props: Props) => {
-    const { handleGetUserData, userSearchByName } = props;
+    const { handleGetUserData, userSearchByName, loading } = props;
     const [searchValue, setSearchValue] = useState("");
 
     useEffect(() => {
@@ -23,6 +25,7 @@ const Search = (props: Props) => {
 
     return (
         <div className="searchWrapper">
+            {loading ? <Loading /> : null}
             <div className="searchInput">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +44,7 @@ const Search = (props: Props) => {
                     placeholder={"Search GitHub username..."}
                 />
             </div>
-            {searchValue !== userSearchByName}
+            {searchValue === userSearchByName.login ? null : <ErrorMessage />}
             <button onClick={() => handleGetUserData(searchValue, AbortSignal)}>
                 Search
             </button>
