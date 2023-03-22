@@ -48,6 +48,12 @@ body {
     background: #141d2f !important;
     color: #fff !important;
 }
+
+.gitHubUserSearcher_DARK .searchWrapper {
+    background: #1e2a47;
+    box-shadow: 0 0 0 0;
+}
+
 @font-face {
     font-family: "SpaceMono";
     src: url("./assets/SpaceMono-Bold.ttf");

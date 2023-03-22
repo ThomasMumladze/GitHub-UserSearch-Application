@@ -1,8 +1,11 @@
 import "./errorMessage.scss";
-const ErrorMessage = () => {
+interface Props {
+    error: string;
+}
+const ErrorMessage = (props: Props) => {
     return (
         <div className={"errorMessage"}>
-            <p>No Result</p>
+            <p>{props.error}</p>
         </div>
     );
 };

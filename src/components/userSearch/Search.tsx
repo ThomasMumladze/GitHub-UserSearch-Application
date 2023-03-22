@@ -1,31 +1,8 @@
-import ErrorMessage from "../errorMessage/ErrorMessage";
 import "./search.scss";
-import { useState, useEffect } from "react";
-import Loading from "../loading/Loading";
 
-interface Props {
-    handleGetUserData: (searchValue: any, signal: any) => void;
-    userSearchByName: any;
-    loading: boolean | null;
-}
-const Search = (props: Props) => {
-    const { handleGetUserData, userSearchByName, loading } = props;
-    const [searchValue, setSearchValue] = useState("");
-
-    useEffect(() => {
-        const controller = new AbortController();
-        const signal = controller.signal;
-
-        handleGetUserData(searchValue, signal);
-
-        return () => {
-            controller.abort();
-        };
-    }, []);
-
+const Search = () => {
     return (
         <div className="searchWrapper">
-            {loading ? <Loading /> : null}
             <div className="searchInput">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -38,16 +15,11 @@ const Search = (props: Props) => {
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                 </svg>
                 <input
-                    value={searchValue}
-                    onChange={(e) => setSearchValue(e.target.value)}
                     type={"text"}
                     placeholder={"Search GitHub username..."}
                 />
             </div>
-            {searchValue === userSearchByName.login ? null : <ErrorMessage />}
-            <button onClick={() => handleGetUserData(searchValue, AbortSignal)}>
-                Search
-            </button>
+            <button>Search</button>
         </div>
     );
 };
