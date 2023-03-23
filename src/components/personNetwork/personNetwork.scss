@@ -1,0 +1,80 @@
+.personNetworkWrapper {
+    width: 100%;
+    height: 85px;
+    display: flex;
+    justify-content: flex-end;
+
+    .content {
+        width: 75%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .container {
+            div {
+                display: flex;
+
+                svg {
+                    width: 21px;
+                    height: 21px;
+                    fill: #4B6A9B;
+                    margin-right: 10px;
+                }
+
+                .textWrapper {
+                    max-width: 182px;
+                    overflow: hidden;
+                    font-family: 'SpaceMono';
+                    font-style: normal;
+
+                    p {
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 22px;
+                        color: #4B6A9B;
+                    }
+
+                    a {
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 22px;
+                        color: #4B6A9B;
+                        text-decoration: none;
+                    }
+                }
+
+                .company {
+                    position: relative;
+                    overflow: visible;
+
+                    .companyMenu {
+                        transition: .2s ease-in-out;
+                        position: absolute;
+                        top: 100%;
+                        width: max-content;
+                        padding: 4px 16px;
+                        background-color: #0079FF;
+                        border-radius: 5px;
+                        visibility: hidden;
+                        opacity: 0;
+                        pointer-events: none;
+
+                        p {
+                            color: #FFF;
+                        }
+                    }
+
+                    &:hover {
+                        .companyMenu {
+                            visibility: visible;
+                            opacity: 1;
+                            pointer-events: all;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
