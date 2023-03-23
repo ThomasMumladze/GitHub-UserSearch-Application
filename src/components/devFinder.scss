@@ -97,3 +97,26 @@
         }
     }
 }
+
+.gitHubUserSearcher_DARK {
+    .devFinder {
+        .pageTitle_DarkTheme {
+            .darkModeButton {
+                svg {
+                    fill: #FFF;
+                }
+
+                &:hover {
+                    .subTitle {
+                        color: #90A4D4 !important;
+                    }
+
+                    svg {
+                        fill: #90A4D4;
+                    }
+                }
+            }
+        }
+
+    }
+}

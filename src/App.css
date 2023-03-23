@@ -40,7 +40,8 @@ body {
 .gitHubUserSearcher_DARK a {
     color: #fff !important;
 }
-.gitHubUserSearcher_DARK .searchResult {
+
+.gitHubUserSearcher_DARK  .searchResult {
     background: #1e2a47;
     box-shadow: 0 0 0 0;
 }
