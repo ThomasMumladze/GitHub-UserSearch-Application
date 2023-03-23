@@ -1,4 +1,8 @@
 .devFinder {
+    @media screen and (max-width: 412px) {
+        width: 100%;
+        padding: 0 16px;
+    }
 
     .pageTitle_DarkTheme {
         width: 730px;
@@ -7,8 +11,8 @@
         justify-content: space-between;
         margin-bottom: 55px;
 
-        @media screen and (max-width: 840px) {
-            width: 100%;
+        @media screen and (max-width: 412px) {
+            width: 85%;
         }
 
         .darkModeButton {
@@ -83,5 +87,13 @@
         top: 110%;
         left: 50%;
         right: 50%;
+    }
+
+    .SearchResult {
+        width: 100%;
+
+        @media screen and (max-width: 412px) {
+            width: 100%;
+        }
     }
 }

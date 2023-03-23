@@ -7,12 +7,21 @@
 }
 body {
     background: #f6f8ff;
+    overflow: hidden;
 }
 .App {
     width: max-content;
     height: max-content;
     padding: 56px;
     margin: 0px auto;
+}
+@media screen and (max-width: 412px) {
+    .App{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 56px 0;
+    }
 }
 .notAvailable {
     opacity: 0.45;

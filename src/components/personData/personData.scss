@@ -5,6 +5,15 @@
     border-radius: 15px;
     background-color: #FEFEFE;
 
+    @media screen and (max-width: 412px) {
+        width: 85%;
+        height: 625px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        margin: 0;
+    }
+
     .wrapper {
         width: 100%;
         display: flex;
@@ -12,12 +21,24 @@
         justify-content: space-between;
         margin-bottom: 25px;
 
+        @media screen and (max-width: 412px) {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
         .imageWrapper {
             margin-right: 45px;
             width: 117px;
             height: 117px;
             border-radius: 50%;
             overflow: hidden;
+
+            @media screen and (max-width: 412px) {
+                margin: 0;
+            }
 
             img {
                 width: 100%;
@@ -32,6 +53,16 @@
             justify-content: space-between;
             font-family: 'SpaceMono';
             font-style: normal;
+
+            @media screen and (max-width: 412px) {
+                margin: 25px 0;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
 
             .leftWrapper {
                 h1 {
@@ -73,6 +104,9 @@
                     text-align: right;
                     color: #697C9A;
 
+                    @media screen and (max-width: 412px) {
+                        padding: 10px 0;
+                    }
                 }
             }
         }
