@@ -7,7 +7,6 @@ import { AxiosInstance } from "./api/AxiosInstance";
 import { useState } from "react";
 import { UserConfig } from "./UserConfig";
 import PersonData from "./personData/PersonData";
-import Loading from "./loading/Loading";
 interface Props {
     handleDarkMode: () => void;
     darkMode: boolean;
@@ -17,21 +16,32 @@ const DevFinder = (props: Props) => {
     const { handleDarkMode, darkMode } = props;
     const [gitHubUser, setGitHubUser] = useState<UserConfig[] | null>(null)
     const [loading, setLoading] = useState<boolean | null>(null)
-    const [error, setError] = useState('')
-    console.log(error);
+    const [error, setError] = useState<boolean | null> (null)
 
     const handleGetUserData = async (value: string) => {
         setLoading(true)
+        if (value === '') {
+            setError(true)
+        } 
         try {
             setTimeout(async () => {
-                const response = await AxiosInstance(`/users/${value}`)
-                setGitHubUser([response.data])
-                setLoading(false)
-                if (value !== response.data.login) {
-                    setError('No result')
-                } else {
-                    setError('')
-                }
+                await AxiosInstance(`/users/${value}`).then(res => {
+                    setGitHubUser([res.data])
+                    setLoading(false)
+                    if (value === '') {
+                        setError(true)
+                        console.log(res);
+                    }else{
+                        setError(false)
+                    }
+                }).catch(err => {
+                    setLoading(false)
+                    setError(true)
+                    setGitHubUser([])
+                })
+
+
+                
             }, 550)
         } catch (error) {
             setLoading(false)
@@ -83,7 +93,7 @@ const DevFinder = (props: Props) => {
                     )}
                 </div>
             </div>
-            <Search handleGetUserData={handleGetUserData} gitHubUser={gitHubUser} />
+            <Search handleGetUserData={handleGetUserData} error={error}/>
 
             {gitHubUser && gitHubUser.map((item: any) => {
                 return (

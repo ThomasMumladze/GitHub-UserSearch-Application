@@ -1,12 +1,13 @@
 import "./search.scss";
 import { useState } from 'react'
 import ErrorMessage from "../errorMessage/ErrorMessage";
+import Loading from "../loading/Loading";
 interface Props {
     handleGetUserData: (value: string) => void,
-    gitHubUser: any;
+    error: boolean | null
 }
 const Search = (props: Props) => {
-    const { handleGetUserData, gitHubUser } = props
+    const { handleGetUserData, error } = props
     const [search, setSearch] = useState('')
 
     return (
@@ -29,7 +30,7 @@ const Search = (props: Props) => {
                     placeholder={"Search GitHub username..."}
                 />
             </div>
-            {/* {search === gitHubUser.login ? <ErrorMessage /> : ''} */}
+            {error ? <ErrorMessage/> : null}
             <button onClick={() => handleGetUserData(search)}>Search</button>
         </div>
     );
