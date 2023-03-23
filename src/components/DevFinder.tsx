@@ -37,7 +37,7 @@ const DevFinder = (props: Props) => {
                 }).catch(err => {
                     setLoading(false)
                     setError(true)
-                    setGitHubUser([])
+                    setGitHubUser(null)
                 })
 
 
