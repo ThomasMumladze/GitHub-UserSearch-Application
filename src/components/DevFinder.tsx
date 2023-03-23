@@ -7,8 +7,7 @@ import { AxiosInstance } from "./api/AxiosInstance";
 import { useState } from "react";
 import { UserConfig } from "./UserConfig";
 import PersonData from "./personData/PersonData";
-import Audience from "./audience/Audience";
-import PersonNetwork from "./personNetwork/PersonNetwork";
+import Loading from "./loading/Loading";
 interface Props {
     handleDarkMode: () => void;
     darkMode: boolean;
@@ -17,11 +16,26 @@ interface Props {
 const DevFinder = (props: Props) => {
     const { handleDarkMode, darkMode } = props;
     const [gitHubUser, setGitHubUser] = useState<UserConfig[] | null>(null)
-
+    const [loading, setLoading] = useState<boolean | null>(null)
+    const [error, setError] = useState('')
+    console.log(error);
 
     const handleGetUserData = async (value: string) => {
-        const response = await AxiosInstance(`/users/${value}`)
-        setGitHubUser([response.data])
+        setLoading(true)
+        try {
+            setTimeout(async () => {
+                const response = await AxiosInstance(`/users/${value}`)
+                setGitHubUser([response.data])
+                setLoading(false)
+                if (value !== response.data.login) {
+                    setError('No result')
+                } else {
+                    setError('')
+                }
+            }, 550)
+        } catch (error) {
+            setLoading(false)
+        }
     }
 
 
@@ -69,13 +83,12 @@ const DevFinder = (props: Props) => {
                     )}
                 </div>
             </div>
-            <Search handleGetUserData={handleGetUserData} />
+            <Search handleGetUserData={handleGetUserData} gitHubUser={gitHubUser} />
 
             {gitHubUser && gitHubUser.map((item: any) => {
                 return (
-                    <div className="SearchResult" style={{ backgroundColor: '#FEFEFE' }}>
-                        <PersonData personData={item} key={item.id} />
-
+                    <div className="SearchResult" style={{ backgroundColor: 'transparent' }}>
+                        <PersonData personData={item} key={item.id} loading={loading} />
                     </div>
                 )
             }

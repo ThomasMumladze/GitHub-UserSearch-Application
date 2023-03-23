@@ -1,71 +1,79 @@
-.wrapper {
+.dataWrapper {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 25px;
+    height: max-content;
+    padding: 36px;
+    border-radius: 15px;
+    background-color: #FEFEFE;
 
-    .imageWrapper {
-        margin-right: 45px;
-        width: 117px;
-        height: 117px;
-        border-radius: 50%;
-        overflow: hidden;
-
-        img {
-            width: 100%;
-            height: 100%;
-        }
-    }
-
-    .personDataWrapper {
-        width: 75%;
+    .wrapper {
+        width: 100%;
         display: flex;
-        align-items: start;
+        align-items: center;
         justify-content: space-between;
-        font-family: 'SpaceMono';
-        font-style: normal;
+        margin-bottom: 25px;
 
-        .leftWrapper {
-            h1 {
-                font-weight: 700;
-                font-size: 26px;
-                line-height: 39px;
-            }
+        .imageWrapper {
+            margin-right: 45px;
+            width: 117px;
+            height: 117px;
+            border-radius: 50%;
+            overflow: hidden;
 
-            .personNickName {
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 24px;
-                padding-bottom: 20px;
-                color: #0079FF;
-            }
-
-            .personName {
-                font-size: 22px;
-            }
-
-            .nameNotSpecified {
-                font-size: 22px;
-            }
-
-            .personBio {
-                font-size: 15px;
-                line-height: 25px;
-                color: #4B6A9B;
-                mix-blend-mode: normal;
-                opacity: 0.75;
+            img {
+                width: 100%;
+                height: 100%;
             }
         }
 
-        .rightWrapper {
-            .createDate {
-                font-weight: 400;
-                font-size: 15px;
-                line-height: 22px;
-                text-align: right;
-                color: #697C9A;
+        .personDataWrapper {
+            width: 75%;
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            font-family: 'SpaceMono';
+            font-style: normal;
 
+            .leftWrapper {
+                h1 {
+                    font-weight: 700;
+                    font-size: 26px;
+                    line-height: 39px;
+                }
+
+                .personNickName {
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 24px;
+                    padding-bottom: 20px;
+                    color: #0079FF;
+                }
+
+                .personName {
+                    font-size: 22px;
+                }
+
+                .nameNotSpecified {
+                    font-size: 22px;
+                }
+
+                .personBio {
+                    font-size: 15px;
+                    line-height: 25px;
+                    color: #4B6A9B;
+                    mix-blend-mode: normal;
+                    opacity: 0.75;
+                }
+            }
+
+            .rightWrapper {
+                .createDate {
+                    font-weight: 400;
+                    font-size: 15px;
+                    line-height: 22px;
+                    text-align: right;
+                    color: #697C9A;
+
+                }
             }
         }
     }
