@@ -15,8 +15,8 @@ body {
     margin: 0px auto;
 }
 .notAvailable {
-    color: #4b6a9b7e !important;
-    fill: #4b6a9b7e !important;
+    opacity: 0.45;
+    pointer-events: none;
 }
 .gitHubUserSearcher {
     height: 100vh;
@@ -53,7 +53,16 @@ body {
     background: #1e2a47;
     box-shadow: 0 0 0 0;
 }
-
+.gitHubUserSearcher_DARK .SearchResult {
+    background-color: #1e2a47 !important;
+}
+.gitHubUserSearcher_DARK .SearchResult .audienceWrapper .content {
+    background-color: #141d2f;
+    color: #fff;
+}
+.gitHubUserSearcher_DARK .SearchResult .audienceWrapper .content h3 {
+    color: #fff;
+}
 @font-face {
     font-family: "SpaceMono";
     src: url("./assets/SpaceMono-Bold.ttf");
