@@ -3,6 +3,12 @@ import Title from "./title/Title";
 import SubTitle from "./subTitle/SubTitle";
 import Search from "./userSearch/Search";
 
+import { AxiosInstance } from "./api/AxiosInstance";
+import { useState } from "react";
+import { UserConfig } from "./UserConfig";
+import PersonData from "./personData/PersonData";
+import Audience from "./audience/Audience";
+import PersonNetwork from "./personNetwork/PersonNetwork";
 interface Props {
     handleDarkMode: () => void;
     darkMode: boolean;
@@ -10,6 +16,14 @@ interface Props {
 
 const DevFinder = (props: Props) => {
     const { handleDarkMode, darkMode } = props;
+    const [gitHubUser, setGitHubUser] = useState<UserConfig[] | null>(null)
+
+
+    const handleGetUserData = async (value: string) => {
+        const response = await AxiosInstance(`/users/${value}`)
+        setGitHubUser([response.data])
+    }
+
 
     return (
         <div className="devFinder" style={{ position: "relative" }}>
@@ -55,7 +69,18 @@ const DevFinder = (props: Props) => {
                     )}
                 </div>
             </div>
-            <Search />
+            <Search handleGetUserData={handleGetUserData} />
+
+            {gitHubUser && gitHubUser.map((item: any) => {
+                return (
+                    <div className="SearchResult" style={{ backgroundColor: '#FEFEFE' }}>
+                        <PersonData personData={item} key={item.id} />
+
+                    </div>
+                )
+            }
+            )}
+
         </div>
     );
 };

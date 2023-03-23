@@ -1,4 +1,5 @@
 .devFinder {
+
     .pageTitle_DarkTheme {
         width: 730px;
         display: flex;
@@ -78,5 +79,12 @@
         top: 110%;
         left: 50%;
         right: 50%;
+    }
+
+    .SearchResult {
+        width: 100%;
+        height: max-content;
+        padding: 36px;
+        border-radius: 15px;
     }
 }
