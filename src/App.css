@@ -16,7 +16,7 @@ body {
     margin: 0px auto;
 }
 @media screen and (max-width: 412px) {
-    .App{
+    .App {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -37,11 +37,12 @@ body {
 .gitHubUserSearcher_DARK p,
 .gitHubUserSearcher_DARK h1,
 .gitHubUserSearcher_DARK span,
-.gitHubUserSearcher_DARK a {
+.gitHubUserSearcher_DARK a,
+.gitHubUserSearcher_DARK input {
     color: #fff !important;
 }
 
-.gitHubUserSearcher_DARK  .searchResult {
+.gitHubUserSearcher_DARK .searchResult {
     background: #1e2a47;
     box-shadow: 0 0 0 0;
 }
