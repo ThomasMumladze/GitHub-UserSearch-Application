@@ -7,6 +7,7 @@ import { AxiosInstance } from "./api/AxiosInstance";
 import { useState } from "react";
 import { UserConfig } from "./UserConfig";
 import PersonData from "./personData/PersonData";
+import Loading from "./loading/Loading";
 interface Props {
     handleDarkMode: () => void;
     darkMode: boolean;
@@ -93,20 +94,26 @@ const DevFinder = (props: Props) => {
             </div>
             <Search handleGetUserData={handleGetUserData} error={error} />
 
-            {gitHubUser?.map((item: any) => {
-                return (
-                    <div
-                        className="SearchResult"
-                        style={{ backgroundColor: "transparent" }}
-                    >
-                        <PersonData
-                            personData={item}
-                            key={item.id}
-                            loading={loading}
-                        />
-                    </div>
-                );
-            })}
+            {loading ? (
+                <Loading />
+            ) : (
+                <>
+                    {gitHubUser?.map((item: any) => {
+                        return (
+                            <div
+                                className="SearchResult"
+                                style={{ backgroundColor: "transparent" }}
+                            >
+                                <PersonData
+                                    personData={item}
+                                    key={item.id}
+                                    loading={loading}
+                                />
+                            </div>
+                        );
+                    })}
+                </>
+            )}
         </div>
     );
 };
