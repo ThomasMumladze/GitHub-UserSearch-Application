@@ -14,40 +14,38 @@ interface Props {
 
 const DevFinder = (props: Props) => {
     const { handleDarkMode, darkMode } = props;
-    const [gitHubUser, setGitHubUser] = useState<UserConfig[] | null>(null)
-    const [loading, setLoading] = useState<boolean | null>(null)
-    const [error, setError] = useState<boolean | null> (null)
+    const [gitHubUser, setGitHubUser] = useState<UserConfig[] | null>(null);
+    const [loading, setLoading] = useState<boolean | null>(null);
+    const [error, setError] = useState<boolean | null>(null);
 
     const handleGetUserData = async (value: string) => {
-        setLoading(true)
-        if (value === '') {
-            setError(true)
-        } 
+        setLoading(true);
+        if (value === "") {
+            setError(true);
+        }
         try {
             setTimeout(async () => {
-                await AxiosInstance(`/users/${value}`).then(res => {
-                    setGitHubUser([res.data])
-                    setLoading(false)
-                    if (value === '') {
-                        setError(true)
-                        console.log(res);
-                    }else{
-                        setError(false)
-                    }
-                }).catch(err => {
-                    setLoading(false)
-                    setError(true)
-                    setGitHubUser(null)
-                })
-
-
-                
-            }, 550)
+                await AxiosInstance(`/users/${value}`)
+                    .then((res) => {
+                        setGitHubUser([res.data]);
+                        setLoading(false);
+                        if (value === "") {
+                            setError(true);
+                            console.log(res);
+                        } else {
+                            setError(false);
+                        }
+                    })
+                    .catch((err) => {
+                        setLoading(false);
+                        setError(true);
+                        setGitHubUser(null);
+                    });
+            }, 550);
         } catch (error) {
-            setLoading(false)
+            setLoading(false);
         }
-    }
-
+    };
 
     return (
         <div className="devFinder" style={{ position: "relative" }}>
@@ -93,17 +91,22 @@ const DevFinder = (props: Props) => {
                     )}
                 </div>
             </div>
-            <Search handleGetUserData={handleGetUserData} error={error}/>
+            <Search handleGetUserData={handleGetUserData} error={error} />
 
-            {gitHubUser && gitHubUser.map((item: any) => {
+            {gitHubUser?.map((item: any) => {
                 return (
-                    <div className="SearchResult" style={{ backgroundColor: 'transparent' }}>
-                        <PersonData personData={item} key={item.id} loading={loading} />
+                    <div
+                        className="SearchResult"
+                        style={{ backgroundColor: "transparent" }}
+                    >
+                        <PersonData
+                            personData={item}
+                            key={item.id}
+                            loading={loading}
+                        />
                     </div>
-                )
-            }
-            )}
-
+                );
+            })}
         </div>
     );
 };
